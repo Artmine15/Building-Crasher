@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47bf002321a58934aa50328c4f3ed27f, type: 3}
+  m_Name: s3 Basic Block Properties
+  m_EditorClassIdentifier: 
+  _enemySpawnIterationsCount: 3
+  _chanceOfSpawnEnemyOnIteration: 75
+  _enemiesPrefabs:
+  - {fileID: 7018391615266921014, guid: 21276f0ab786e834591509d524ffc7a9, type: 3}
+  - {fileID: 7018391615266921014, guid: de3fd0cc64db34f45910a8eed7123d3a, type: 3}
+  - {fileID: 7018391615266921014, guid: bf7f0662e4c364d4c9fc03627208d272, type: 3}
+  _spikesSpawnIterationsCount: 3
+  _chanceOfSpawnSpikeOnIteration: 75
+  _spikesPrefabs:
+  - {fileID: 7008522548052942793, guid: 496cca5037d705549916dca588faee0c, type: 3}
+  - {fileID: 7008522548052942793, guid: 71cf7a9ccf66be24e9f157b646eca7f3, type: 3}
+  - {fileID: 7008522548052942793, guid: 908dff0bf98053a43b5b140465f348a8, type: 3}

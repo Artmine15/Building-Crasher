@@ -1,0 +1,12 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/GameUI/USSFile.uss?fileID=7433441132597879392&amp;guid=10d867dc1f8ab1449aad3a1229b74ab4&amp;type=3#USSFile" />
+    <engine:VisualElement name="Root" style="flex-direction: row;">
+        <engine:VisualElement style="background-image: url(&quot;project://database/Assets/Sprites/UI.png?fileID=1080825480604336155&amp;guid=82ef48b2b3612b84d98ebcc37cd5a485&amp;type=3#Plus Icon&quot;); -unity-background-image-tint-color: rgb(0, 191, 1); -unity-background-scale-mode: scale-to-fit; width: 64px; height: 64px; margin-left: 64px; margin-top: 64px; margin-right: 0;">
+            <engine:Label text="21&#10;" name="HealthDisplay" emoji-fallback-support="false" enable-rich-text="true" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" style="-unity-font-definition: resource(&apos;Fonts &amp; Materials/Tiny5-Regular&apos;); font-size: 90px; color: rgb(0, 128, 0); -unity-text-align: middle-left; left: 100%; margin-left: 32px; -unity-font-style: normal;">
+                <Bindings>
+                    <engine:DataBinding property="text" data-source-path="CurrentHealthDisplay" data-source-type="Artmine15.HappyBirthday.v3.Gisha.PlayerHealth, Assembly-CSharp" binding-mode="ToTarget" />
+                </Bindings>
+            </engine:Label>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

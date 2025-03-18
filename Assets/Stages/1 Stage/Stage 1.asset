@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2760bd50398498d48a7ed815345fd3d8, type: 3}
+  m_Name: Stage 1
+  m_EditorClassIdentifier: 
+  _index: 2
+  _unifiedBlockProperties: {fileID: 11400000, guid: 02000caa5297dc74586e7219dcbd8894, type: 2}
+  _blocksSpawnProperties: {fileID: 11400000, guid: ebb0612a611ec8c40a018f0324808446, type: 2}
+  _basicBlockProperties: {fileID: 11400000, guid: 43de5461e5e1c9c4188f7536cf325174, type: 2}
+  _brokenBlockProperties: {fileID: 11400000, guid: f87b494fca463ee499175bc00048a4f8, type: 2}
+  _musicProperties: {fileID: 11400000, guid: 7fc51888efc5f9749b6bcb2e66304384, type: 2}
+  _snowfallProperties: {fileID: 11400000, guid: c8277bd28276e1440af3e247dc9b30ea, type: 2}

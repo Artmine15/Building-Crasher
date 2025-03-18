@@ -1,0 +1,45 @@
+.buttons-container {
+    -unity-font-definition: initial;
+    position: absolute;
+}
+
+.unity-button {
+    -unity-font-definition: initial;
+    width: 280px;
+    height: 210px;
+    margin-right: 32px;
+    margin-bottom: 64px;
+    margin-top: 64px;
+    margin-left: 32px;
+    padding-right: 7%;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 7%;
+    background-color: rgba(51, 36, 26, 0.9);
+    border-left-color: rgba(0, 0, 0, 0.53);
+    border-right-color: rgba(0, 0, 0, 0.53);
+    border-top-color: rgba(128, 91, 65, 0.4);
+    border-bottom-color: rgba(0, 0, 0, 0.53);
+    border-top-width: 25px;
+    border-right-width: 25px;
+    border-bottom-width: 25px;
+    border-left-width: 25px;
+    transition-duration: 0.1s;
+}
+
+.unity-button:active {
+    border-top-width: 52px;
+    border-right-width: 52px;
+    border-bottom-width: 52px;
+    border-left-width: 52px;
+    border-top-color: rgba(0, 0, 0, 0.53);
+    border-right-color: rgba(0, 0, 0, 0.53);
+    border-left-color: rgba(0, 0, 0, 0.53);
+    border-bottom-color: rgba(0, 0, 0, 0.53);
+}
+
+.button-icon {
+    -unity-background-scale-mode: scale-to-fit;
+    -unity-background-image-tint-color: rgba(191, 138, 98, 0.9);
+    flex-grow: 1;
+}

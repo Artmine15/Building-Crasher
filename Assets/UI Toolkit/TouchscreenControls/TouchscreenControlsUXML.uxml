@@ -1,0 +1,21 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/USSFile.uss?fileID=7433441132597879392&amp;guid=9bb8dcd578a04d64a909f48c8fb48cbb&amp;type=3#USSFile" />
+    <engine:VisualElement style="justify-content: flex-end; bottom: 0; position: absolute; top: 0; left: 0; right: 0;">
+        <engine:VisualElement name="RightButtons" class="buttons-container" style="flex-direction: row; bottom: 0; top: auto; left: 96px; right: auto;">
+            <engine:Button text="Button" enable-rich-text="false" emoji-fallback-support="false" name="MoveLeft" triple-click-selects-line="false" double-click-selects-word="false" display-tooltip-when-elided="false" focusable="false" class="unity-button">
+                <engine:VisualElement class="button-icon" style="background-image: url(&quot;project://database/Assets/Sprites/UI.png?fileID=-1557013538026691241&amp;guid=82ef48b2b3612b84d98ebcc37cd5a485&amp;type=3#Move Left&quot;);" />
+            </engine:Button>
+            <engine:Button text="Button" enable-rich-text="false" emoji-fallback-support="false" name="MoveRight" double-click-selects-word="false" triple-click-selects-line="false" display-tooltip-when-elided="false" focusable="false" class="unity-button">
+                <engine:VisualElement class="button-icon" style="background-image: url(&quot;project://database/Assets/Sprites/UI.png?fileID=82707731993968007&amp;guid=82ef48b2b3612b84d98ebcc37cd5a485&amp;type=3#Move Right&quot;);" />
+            </engine:Button>
+        </engine:VisualElement>
+        <engine:VisualElement name="LeftButtons" class="buttons-container" style="flex-direction: row-reverse; right: 96px; bottom: 0;">
+            <engine:Button text="Button" enable-rich-text="false" emoji-fallback-support="false" name="Jump" display-tooltip-when-elided="false" triple-click-selects-line="false" double-click-selects-word="false" class="unity-button">
+                <engine:VisualElement class="button-icon" style="background-image: url(&quot;project://database/Assets/Sprites/UI.png?fileID=8586885197115800619&amp;guid=82ef48b2b3612b84d98ebcc37cd5a485&amp;type=3#Jump&quot;);" />
+            </engine:Button>
+            <engine:Button text="Button" enable-rich-text="false" emoji-fallback-support="false" name="Attack" display-tooltip-when-elided="false" triple-click-selects-line="false" double-click-selects-word="false" class="unity-button">
+                <engine:VisualElement class="button-icon" style="background-image: url(&quot;project://database/Assets/Sprites/UI.png?fileID=-9136572144232859775&amp;guid=82ef48b2b3612b84d98ebcc37cd5a485&amp;type=3#Attack&quot;);" />
+            </engine:Button>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

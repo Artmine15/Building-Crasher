@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Ground
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2966409083
+    locked: 0
+  - name: Behind Block
+    uniqueID: 98666273
+    locked: 0
+  - name: Falling
+    uniqueID: 3831940855
+    locked: 0
+  - name: Block Background
+    uniqueID: 1466628571
+    locked: 0
+  - name: Player
+    uniqueID: 1260006837
+    locked: 0
+  - name: Entity
+    uniqueID: 1614644669
+    locked: 0
+  - name: Block
+    uniqueID: 1639745141
+    locked: 0
+  - name: Foreground
+    uniqueID: 1672344601
+    locked: 0
+  - name: UI
+    uniqueID: 1994671597
+    locked: 0
+  m_RenderingLayers:
+  - Default
