@@ -75,7 +75,7 @@ namespace Artmine15.HappyBirthday.v3.Gisha
 
             for (int i = 0; i < currentProperties.BasicBlockProperties.EnemySpawnIterationsCount - 1; i++)
             {
-                if (Randomizer.IsTrueWithChanceOf(currentProperties.BasicBlockProperties.ChanceOfSpawnEnemyOnIteration) == true)
+                if (RandomExtensions.ChanceOf(currentProperties.BasicBlockProperties.ChanceOfSpawnEnemyOnIteration) == true)
                 {
                     SpawnEnemy(_currentBasicBlock, currentProperties);
                 }
@@ -83,7 +83,7 @@ namespace Artmine15.HappyBirthday.v3.Gisha
 
             for (int i = 0; i < currentProperties.BasicBlockProperties.SpikesSpawnIterationsCount; i++)
             {
-                if (Randomizer.IsTrueWithChanceOf(currentProperties.BasicBlockProperties.ChanceOfSpawnSpikeOnIteration) == true)
+                if (RandomExtensions.ChanceOf(currentProperties.BasicBlockProperties.ChanceOfSpawnSpikeOnIteration) == true)
                 {
                     _lastSpike = currentProperties.BasicBlockProperties.SpikesPrefabs[Random.Range(0, currentProperties.BasicBlockProperties.SpikesPrefabs.Length)];
                     SetupEntity(_lastSpike, _currentBasicBlock);

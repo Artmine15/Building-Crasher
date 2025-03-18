@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "64d64bce24850d9e78f7980bb94ff8fcf752d971"
+      "hash": "954176308d7ac51aaf104145c32bbb3c6ecd905d"
     },
     "com.artmine15.scene-transition-system": {
       "version": "https://github.com/Artmine15/Scene-Transition-System.git",
@@ -13,9 +13,9 @@
       "source": "git",
       "dependencies": {
         "com.codewriter.triinspector": "1.14.1",
-        "com.artmine15.toolkit": "1.1.4"
+        "com.artmine15.toolkit": "2.0.0"
       },
-      "hash": "1b1c21fdecdf755dc727378698d96448152143a6"
+      "hash": "22122d21a95e8cfe6b2528f77b113e6ae18fa90f"
     },
     "com.artmine15.toolkit": {
       "version": "https://github.com/Artmine15/Toolkit.git",
@@ -23,9 +23,9 @@
       "source": "git",
       "dependencies": {
         "com.codewriter.triinspector": "1.14.1",
-        "com.artmine15.extensions": "1.1.1"
+        "com.artmine15.extensions": "1.1.2"
       },
-      "hash": "fb43a40f9b09b8c82b84b7b4bd63cb9cc781bac9"
+      "hash": "9c63369eeb9d4c8dc96ceab2e5d497c22eab486b"
     },
     "com.codewriter.triinspector": {
       "version": "https://github.com/codewriter-packages/Tri-Inspector.git",

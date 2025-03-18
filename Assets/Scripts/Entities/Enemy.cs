@@ -14,7 +14,7 @@ namespace Artmine15.HappyBirthday.v3.Gisha
         [SerializeField] private UnifiedEnemyProperties _unifiedEnemyProperties;
         [SerializeField] private TypedEnemyProperties _enemyProperties;
 
-        private Timer _knockoutTimer = new Timer();
+        private CommonTimer _knockoutTimer = new CommonTimer();
 
         private float _moveDeltaSpeed;
         private Vector2 _targetPosition;
@@ -31,12 +31,12 @@ namespace Artmine15.HappyBirthday.v3.Gisha
 
         private void OnEnable()
         {
-            _knockoutTimer.OnTimerEnded += DisableKnockout;
+            _knockoutTimer.OnEnded += DisableKnockout;
         }
 
         private void OnDisable()
         {
-            _knockoutTimer.OnTimerEnded -= DisableKnockout;
+            _knockoutTimer.OnEnded -= DisableKnockout;
         }
 
         public override void Initialize(EntitiesContainer entitiesContainer, ParticlesSpawner particlesSpawner)
@@ -79,7 +79,7 @@ namespace Artmine15.HappyBirthday.v3.Gisha
 
         private void Update()
         {
-            _knockoutTimer.UpdateTimer(Time.deltaTime);
+            _knockoutTimer.Update(Time.deltaTime);
 
             if (IsEntityEnabled == false) return;
 
@@ -118,7 +118,7 @@ namespace Artmine15.HappyBirthday.v3.Gisha
         public void ApplyKnockout()
         {
             _knockoutCount++;
-            _knockoutTimer.StartTimer(_unifiedEnemyProperties.KnockoutTime, TimerType.Common);
+            _knockoutTimer.Start(_unifiedEnemyProperties.KnockoutTime);
             EnableGravity();
             Vector2 direction = transform.position - _playerMovement.transform.position; direction.y = 0; direction.Normalize();
             direction = new Vector2(_enemyProperties.KnockoutDirection.x * direction.x, _enemyProperties.KnockoutDirection.y);

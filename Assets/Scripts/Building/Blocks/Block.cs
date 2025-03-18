@@ -28,11 +28,11 @@ namespace Artmine15.HappyBirthday.v3.Gisha
 
         private Color[] _blockDefaultColors;
         private Color[] _blockThrowColors;
-        private Timer _colorTimer = new Timer();
-        private Timer _lightsTimer = new Timer();
-        private Timer _accelerationTimer = new Timer();
+        private CommonTimer _colorTimer = new CommonTimer();
+        private CommonTimer _lightsTimer = new CommonTimer();
+        private CommonTimer _accelerationTimer = new CommonTimer();
         private float _currentMoveDelta;
-        private Timer _fallingTimer = new Timer();
+        private CommonTimer _fallingTimer = new CommonTimer();
 
         private bool _isActivated; public bool IsActivated => _isActivated;
         private bool _isThrown; public bool IsThrown => _isThrown;
@@ -57,26 +57,26 @@ namespace Artmine15.HappyBirthday.v3.Gisha
 
         private void Update()
         {
-            _colorTimer.UpdateTimer(Time.deltaTime);
-            _lightsTimer.UpdateTimer(Time.deltaTime);
-            _accelerationTimer.UpdateTimer(Time.deltaTime);
-            _fallingTimer.UpdateTimer(Time.deltaTime);
+            _colorTimer.Update(Time.deltaTime);
+            _lightsTimer.Update(Time.deltaTime);
+            _accelerationTimer.Update(Time.deltaTime);
+            _fallingTimer.Update(Time.deltaTime);
 
             switch (State)
             {
                 case BlockState.Throwing:
                     for (int i = 0; i < _lights.Count; i++)
-                        _lights[i].intensity = _lightsIntensivity[i] * _lightsTimer.GetTimerNormalizedValue();
+                        _lights[i].intensity = _lightsIntensivity[i] * _lightsTimer.GetNormalizedTime();
 
                     for (int i = 0; i < _colorableSprites.Count; i++)
                     {
                         _colorableSprites[i].color = Color.Lerp(_blockDefaultColors[i], _blockThrowColors[i],
-                            _unifiedBlockProperties.NormalizedColorCurve.Evaluate(_colorTimer.GetTimerNormalizedValue()));
+                            _unifiedBlockProperties.NormalizedColorCurve.Evaluate(_colorTimer.GetNormalizedTime()));
                     }
                     break;
                 case BlockState.Acceleration:
                     _currentMoveDelta = _unifiedBlockProperties.NormilizedAccelerationCurve.Evaluate(
-                        _accelerationTimer.GetTimerNormalizedValue()) * _unifiedBlockProperties.MoveDeltaFallingSpeed;
+                        _accelerationTimer.GetNormalizedTime()) * _unifiedBlockProperties.MoveDeltaFallingSpeed;
                     transform.Translate(Vector2.down * _currentMoveDelta * Time.deltaTime);
                     break;
                 case BlockState.Falling:
@@ -113,9 +113,9 @@ namespace Artmine15.HappyBirthday.v3.Gisha
                 }
                 AudioHandler.PlaySFX(_throwSfxPlayableChannel);
 
-                _colorTimer.StartTimer(_unifiedBlockProperties.ColorTimeSeconds, TimerType.Common, TimerGrowing.Increasing);
-                _lightsTimer.StartTimer(_unifiedBlockProperties.ColorTimeSeconds, TimerType.Common, TimerGrowing.Decreasing);
-                _colorTimer.OnTimerEnded += StartFalling;
+                _colorTimer.Start(_unifiedBlockProperties.ColorTimeSeconds, TimerGrowing.Increasing);
+                _lightsTimer.Start(_unifiedBlockProperties.ColorTimeSeconds, TimerGrowing.Decreasing);
+                _colorTimer.OnEnded += StartFalling;
                 State = BlockState.Throwing;
                 _isThrown = true;
                 OnThrown?.Invoke();
@@ -124,9 +124,9 @@ namespace Artmine15.HappyBirthday.v3.Gisha
 
         public virtual void StartFalling()
         {
-            _colorTimer.OnTimerEnded -= StartFalling;
-            _accelerationTimer.StartTimer(_unifiedBlockProperties.AccelerationTimeSeconds, TimerType.Common, TimerGrowing.Increasing);
-            _accelerationTimer.OnTimerEnded += SetConstantFallingSpeed;
+            _colorTimer.OnEnded -= StartFalling;
+            _accelerationTimer.Start(_unifiedBlockProperties.AccelerationTimeSeconds, TimerGrowing.Increasing);
+            _accelerationTimer.OnEnded += SetConstantFallingSpeed;
 
             for (int i = 0; i < _lights.Count; i++)
                 _lights[i].enabled = false;
@@ -137,15 +137,15 @@ namespace Artmine15.HappyBirthday.v3.Gisha
 
         public virtual void SetConstantFallingSpeed()
         {
-            _accelerationTimer.OnTimerEnded -= SetConstantFallingSpeed;
-            _fallingTimer.StartTimer(_unifiedBlockProperties.FallingTimeSeconds, TimerType.Common);
-            _fallingTimer.OnTimerEnded += Disable;
+            _accelerationTimer.OnEnded -= SetConstantFallingSpeed;
+            _fallingTimer.Start(_unifiedBlockProperties.FallingTimeSeconds);
+            _fallingTimer.OnEnded += Disable;
             State = BlockState.Falling;
         }
 
         private void Disable()
         {
-            _fallingTimer.OnTimerEnded -= Disable;
+            _fallingTimer.OnEnded -= Disable;
             gameObject.SetActive(false);
         }
 

@@ -33,7 +33,7 @@ namespace Artmine15.HappyBirthday.v3.Gisha
 
                 if (_currentBasicBlocksCount > _currentBrokenBlocksCount)
                 {
-                    if (Randomizer.IsTrueWithChanceOf(_currentBlocksSpawn.ChanceOfBrokenBlockSpawn) == true && _currentBrokenBlocksCount > 0)
+                    if (RandomExtensions.ChanceOf(_currentBlocksSpawn.ChanceOfBrokenBlockSpawn) == true && _currentBrokenBlocksCount > 0)
                     {
                         stageProperties = _currentStage;
                         return PlaceBrokenBlock();

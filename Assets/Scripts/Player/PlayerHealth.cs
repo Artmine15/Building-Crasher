@@ -20,8 +20,8 @@ namespace Artmine15.HappyBirthday.v3.Gisha
         [Space]
         [SerializeField] private float _cooldownTimeSeconds = 1;
         [SerializeField] private float _blinkFrequency = 2;
-        private Timer _cooldownTimer = new Timer();
-        private Timer _cooldownViewTimer = new Timer();
+        private CommonTimer _cooldownTimer = new CommonTimer();
+        private RepeatableTimer _cooldownViewTimer = new RepeatableTimer();
 
 
         [Space]
@@ -57,13 +57,13 @@ namespace Artmine15.HappyBirthday.v3.Gisha
 
         private void Update()
         {
-            _cooldownTimer.UpdateTimer(Time.deltaTime);
-            _cooldownViewTimer.UpdateTimer(Time.deltaTime);
+            _cooldownTimer.Update(Time.deltaTime);
+            _cooldownViewTimer.Update(Time.deltaTime);
         }
 
         private void ApplyDamage()
         {
-            if (_cooldownTimer.GetTimerValue() > 0) return;
+            if (_cooldownTimer.GetTime() > 0) return;
 
             if(_currentHealth > 0)
             {
@@ -83,20 +83,20 @@ namespace Artmine15.HappyBirthday.v3.Gisha
 
         public void ApplyCooldown()
         {
-            if (_cooldownTimer.GetTimerValue() > 0) return;
+            if (_cooldownTimer.GetTime() > 0) return;
 
-            _cooldownTimer.StartTimer(_cooldownTimeSeconds, TimerType.Common);
-            _cooldownViewTimer.StartTimer(_cooldownTimeSeconds / _blinkFrequency, TimerType.Repeatable);
+            _cooldownTimer.Start(_cooldownTimeSeconds);
+            _cooldownViewTimer.Start(_cooldownTimeSeconds / _blinkFrequency);
             _isViewEnabled = true;
 
-            _cooldownTimer.OnTimerEnded += EndCooldown;
-            _cooldownViewTimer.OnTimerRepeated += SwitchView;
+            _cooldownTimer.OnEnded += EndCooldown;
+            _cooldownViewTimer.OnRepeated += SwitchView;
         }
 
         private void EndCooldown()
         {
-            _cooldownTimer.OnTimerEnded -= EndCooldown;
-            _cooldownViewTimer.OnTimerRepeated -= SwitchView;
+            _cooldownTimer.OnEnded -= EndCooldown;
+            _cooldownViewTimer.OnRepeated -= SwitchView;
             _cooldownViewTimer.Stop();
             //SwitchView();
             EnableView();

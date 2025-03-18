@@ -12,7 +12,7 @@ namespace Artmine15.HappyBirthday.v3.Gisha
         [Space]
         [SerializeField] private float _musicFadeInSeconds;
         [SerializeField] private float _musicFadeOutSeconds;
-        private Timer _fadeTimer = new Timer();
+        private CommonTimer _fadeTimer = new CommonTimer();
         private MusicState _musicState = MusicState.Stopped;
 
         private float _volume;
@@ -22,14 +22,14 @@ namespace Artmine15.HappyBirthday.v3.Gisha
 
         private void Update()
         {
-            _fadeTimer.UpdateTimer(Time.deltaTime);
+            _fadeTimer.Update(Time.deltaTime);
 
             switch (_musicState)
             {
                 case MusicState.Stopped:
                     break;
                 case MusicState.FadingIn:
-                    _musicSource.volume = _fadeTimer.GetTimerNormalizedValue();
+                    _musicSource.volume = _fadeTimer.GetNormalizedTime();
                     break;
                 case MusicState.Playing:
                     if (_musicSource.time >= _endOffset - _musicFadeOutSeconds)
@@ -38,7 +38,7 @@ namespace Artmine15.HappyBirthday.v3.Gisha
                     }
                     break;
                 case MusicState.FadingOut:
-                    _musicSource.volume = _volume * _fadeTimer.GetTimerNormalizedValue();
+                    _musicSource.volume = _volume * _fadeTimer.GetNormalizedTime();
                     break;
                 default:
                     break;
@@ -57,7 +57,7 @@ namespace Artmine15.HappyBirthday.v3.Gisha
             if(_musicState == MusicState.Playing)
             {
                 FadeOutMusic();
-                _fadeTimer.OnTimerEnded += FadeInMusic;
+                _fadeTimer.OnEnded += FadeInMusic;
             }
             else
             {
@@ -69,22 +69,22 @@ namespace Artmine15.HappyBirthday.v3.Gisha
         {
             _musicSource.time = _startOffset;
             _volume = 0;
-            _fadeTimer.StartTimer(_musicFadeInSeconds, TimerType.Common, TimerGrowing.Increasing);
-            _fadeTimer.OnTimerEnded -= FadeInMusic;
-            _fadeTimer.OnTimerEnded += MakePlaying;
+            _fadeTimer.Start(_musicFadeInSeconds, TimerGrowing.Increasing);
+            _fadeTimer.OnEnded -= FadeInMusic;
+            _fadeTimer.OnEnded += MakePlaying;
             _musicState = MusicState.FadingIn;
         }
 
         private void FadeOutMusic()
         {
             _volume = _musicSource.volume;
-            _fadeTimer.StartTimer(_musicFadeOutSeconds, TimerType.Common, TimerGrowing.Decreasing);
+            _fadeTimer.Start(_musicFadeOutSeconds, TimerGrowing.Decreasing);
             _musicState = MusicState.FadingOut;
         }
 
         private void MakePlaying()
         {
-            _fadeTimer.OnTimerEnded -= MakePlaying;
+            _fadeTimer.OnEnded -= MakePlaying;
             _musicState = MusicState.Playing;
         }
 

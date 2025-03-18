@@ -15,7 +15,7 @@ namespace Artmine15.HappyBirthday.v3.Gisha
         [SerializeField] private float _attackRadius;
         private Collider2D[] _foundColliders;
 
-        private Timer _cooldownTimer = new Timer();
+        private CommonTimer _cooldownTimer = new CommonTimer();
         [Space]
         [SerializeField] private float _attackCooldownSeconds;
 
@@ -40,12 +40,12 @@ namespace Artmine15.HappyBirthday.v3.Gisha
 
         private void Update()
         {
-            _cooldownTimer.UpdateTimer(Time.deltaTime);
+            _cooldownTimer.Update(Time.deltaTime);
         }
 
         private void PerformAttack()
         {
-            if (_cooldownTimer.GetTimerValue() > 0) return;
+            if (_cooldownTimer.GetTime() > 0) return;
 
             SetAttackPoint();
             _foundColliders = Physics2D.OverlapCircleAll(_setupedAttackPoint, _attackRadius);
@@ -59,7 +59,7 @@ namespace Artmine15.HappyBirthday.v3.Gisha
                 }
             }
             _audioHandler.PlaySFX(_attackSfxPlayableChannel);
-            _cooldownTimer.StartTimer(_attackCooldownSeconds, TimerType.Common);
+            _cooldownTimer.Start(_attackCooldownSeconds);
         }
 
 
