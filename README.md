@@ -3,6 +3,7 @@ It's a birthday game, previously.
 I made it with my girlfriend, all sprites are hers. It took a week to make a working prototype and one week I spent to rework some systems and make it more lovable and beautiful.
 
 Now it's just a portfolio game.
+
 ---
 - ⚡DI in use. VContainer
 - 🍃Smooth gameplay
