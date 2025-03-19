@@ -31,7 +31,7 @@ namespace Artmine15.HappyBirthday.v3.Gisha
             {
                 item.SetActive(false);
             }
-            _views[Random.Range(0, _views.Length - 1)].SetActive(true);
+            _views[Random.Range(0, _views.Length)].SetActive(true);
         }
 
         public override void Activate()
